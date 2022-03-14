@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<robot name="Arobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Arobot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Arobot_description)/urdf/Arobot.trans" />
+<xacro:include filename="$(find Arobot_description)/urdf/Arobot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.01990240374144248 -0.0157829477466947 0.017303356869611805"/>
+    <mass value="0.7310055412327093"/>
+    <inertia ixx="0.000985" ixy="2.7e-05" ixz="-0.0" iyy="0.001604" iyz="4e-06" izz="0.001061"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="NATHANwaist_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.002244162849833524 0.01877018847005935 -0.00758980344661425"/>
+    <mass value="0.5674790951447787"/>
+    <inertia ixx="0.000389" ixy="-5e-05" ixz="1.2e-05" iyy="0.000447" iyz="5.3e-05" izz="0.00049"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.019548 -0.017836 -0.017657"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANwaist_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.019548 -0.017836 -0.017657"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANwaist_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="NATHANarm1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.04849048815110291 0.03410586352233076 0.008283499394747746"/>
+    <mass value="0.4435773528478237"/>
+    <inertia ixx="0.000286" ixy="-0.00033" ixz="-1e-06" iyy="0.000536" iyz="-0.0" izz="0.000787"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.005629 -0.058113 -0.013708"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANarm1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.005629 -0.058113 -0.013708"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANarm1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="NATHANarm02_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.031227914013118224 0.021821304286689686 -0.009778440934091331"/>
+    <mass value="0.4469758277074998"/>
+    <inertia ixx="0.000222" ixy="-0.000194" ixz="6e-06" iyy="0.000364" iyz="4e-06" izz="0.000527"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.092669 -0.126942 -0.013708"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANarm02_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.092669 -0.126942 -0.013708"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANarm02_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="NATHANarm3_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.015052541891171806 0.010347518296290548 -0.007683736065540471"/>
+    <mass value="0.1425119969472937"/>
+    <inertia ixx="3e-05" ixy="-8e-06" ixz="5e-06" iyy="2.9e-05" iyz="-1e-06" izz="3.8e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.169228 -0.174079 -0.004208"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANarm3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.169228 -0.174079 -0.004208"/>
+    <geometry>
+      <mesh filename="package://Arobot_description/meshes/NATHANarm3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.019548 0.017836 0.017657"/>
+  <parent link="base_link"/>
+  <child link="NATHANwaist_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev2" type="revolute">
+  <origin rpy="0 0 0" xyz="0.013919 0.040277 -0.003949"/>
+  <parent link="NATHANwaist_1"/>
+  <child link="NATHANarm1_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+  <limit effort="100" lower="-0.698132" upper="2.356194" velocity="100"/>
+</joint>
+
+<joint name="Rev3" type="revolute">
+  <origin rpy="0 0 0" xyz="0.098298 0.068829 0.0"/>
+  <parent link="NATHANarm1_1"/>
+  <child link="NATHANarm02_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+  <limit effort="100" lower="-1.22173" upper="1.48353" velocity="100"/>
+</joint>
+
+<joint name="Rev4" type="continuous">
+  <origin rpy="0 0 0" xyz="0.076559 0.047137 -0.0095"/>
+  <parent link="NATHANarm02_1"/>
+  <child link="NATHANarm3_1"/>
+  <axis xyz="0.819152 0.573576 -0.0"/>
+</joint>
+
+</robot>
